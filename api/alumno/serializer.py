@@ -13,4 +13,4 @@ class AlumnoSerializers(serializers.ModelSerializer):
 class CarreraSerializer(serializers.ModelSerializer):
     class Meta:
         model = Carrera
-         fields = ('__all__')
+        fields = ('__all__')
