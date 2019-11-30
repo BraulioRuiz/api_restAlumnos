@@ -111,26 +111,26 @@ WSGI_APPLICATION = 'api.wsgi.application'
 #         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
 #     }
 # }
-DATABASES = {
-        'default': {
-            'ENGINE': 'sql_server.pyodbc',
-            'NAME': 'SOAlumnos',
-            'USER': 'sa',
-            'PASSWORD': '1239',
-            'HOST': '127.0.0.1',
-            'OPTIONS':{
-                'driver': 'ODBC Driver 11 for SQL Server',
-            }
-        }
-    }
+# DATABASES = {
+#         'default': {
+#             'ENGINE': 'sql_server.pyodbc',
+#             'NAME': 'SOAlumnos',
+#             'USER': 'sa',
+#             'PASSWORD': '1239',
+#             'HOST': '127.0.0.1',
+#             'OPTIONS':{
+#                 'driver': 'ODBC Driver 11 for SQL Server',
+#             }
+#         }
+#     }
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'djangogirls',
-        'USER': 'name',
-        'PASSWORD': '',
-        'HOST': 'localhost',
-        'PORT': '',
+        'NAME': 'sistemas',
+        'USER': 'postgres',
+        'PASSWORD': 'postgres12345',
+        'HOST': 'sistemas.cmrszddirouv.us-east-1.rds.amazonaws.com',
+        'PORT': '5432',
     }
 }
 
