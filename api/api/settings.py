@@ -37,12 +37,27 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    
+
+    'corsheaders',
     'rest_framework',
     'rest_framework.authtoken',
     'alumno',
     'Login'
 ]
+
+MIDDLEWARE = [
+    'django.middleware.security.SecurityMiddleware',
+    'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.common.CommonMiddleware',
+    'django.middleware.csrf.CsrfViewMiddleware',
+    'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'django.contrib.messages.middleware.MessageMiddleware',
+    'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.common.BrokenLinkEmailsMiddleware',
+    
+]
+
 
 SITE_ID = 1
 
@@ -53,22 +68,18 @@ REST_FRAMEWORK = {
     'PAGE_SIZE': 100
 }
 
+CORS_ORIGIN_ALLOW_ALL = True
+
 CORS_ALLOW_METHODS = (
     'DELETE',
     'GET',
     'POST',
     'PUT',
+    'OPTIONS'
 )
-
-MIDDLEWARE = [
-    'django.middleware.security.SecurityMiddleware',
-    'django.contrib.sessions.middleware.SessionMiddleware',
-    'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
-    'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'django.contrib.messages.middleware.MessageMiddleware',
-    'django.middleware.clickjacking.XFrameOptionsMiddleware',
-]
+# CORS_ORIGIN_WHITELIST = [
+#     'http://localhost:8080'
+# ]
 
 ROOT_URLCONF = 'api.urls'
 
@@ -107,13 +118,21 @@ DATABASES = {
             'USER': 'sa',
             'PASSWORD': '1239',
             'HOST': '127.0.0.1',
-            'PORT': '1434',
             'OPTIONS':{
                 'driver': 'ODBC Driver 11 for SQL Server',
             }
         }
     }
-
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'djangogirls',
+        'USER': 'name',
+        'PASSWORD': '',
+        'HOST': 'localhost',
+        'PORT': '',
+    }
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/2.1/ref/settings/#auth-password-validators
